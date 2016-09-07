@@ -10,20 +10,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "saboritempedido")
-public class SaborItemPedidoVO {
+@Table(name = "itempedido")
+public class ItemPedidoVO {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 
-	@ManyToOne
-	@JoinColumn(name = "idsabor")
-	private SaborVO sabor;
+	@Column(name = "tamanho")
+	private Integer tamanho;
 
 	@ManyToOne
-	@JoinColumn(name = "iditempedido")
-	private ItemPedidoVO itemPedido;
+	@JoinColumn(name = "idpedido")
+	private PedidoVO pedido;
 
 	public Integer getId() {
 		return id;
@@ -33,20 +33,19 @@ public class SaborItemPedidoVO {
 		this.id = id;
 	}
 
-	public SaborVO getSabor() {
-		return sabor;
+	public PedidoVO getPedido() {
+		return pedido;
 	}
 
-	public void setSabor(SaborVO sabor) {
-		this.sabor = sabor;
+	public void setPedido(PedidoVO pedido) {
+		this.pedido = pedido;
 	}
 
-	public ItemPedidoVO getItemPedido() {
-		return itemPedido;
+	public Integer getTamanho() {
+		return tamanho;
 	}
 
-	public void setItemPedido(ItemPedidoVO itemPedido) {
-		this.itemPedido = itemPedido;
+	public void setTamanho(Integer tamanho) {
+		this.tamanho = tamanho;
 	}
-
 }
